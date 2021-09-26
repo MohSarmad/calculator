@@ -1,23 +1,38 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
 
-    char fir_num = fgetc(stdin); if (fir_num == '\n') {printf("dont enter!"); return 0;}
-    char oper    = fgetc(stdin); if (oper    == '\n') {printf("dont enter!"); return 0;}
-    char sec_num = fgetc(stdin); if (sec_num == '\n') {printf("dont enter!"); return 0;}
-    char result  = 0;
+    float first_num;
+    scanf("%f", &first_num);
 
-    if (oper == '+') {
-        result = fir_num + sec_num;
-    }
-    if (oper == '-') {
-        result = fir_num - sec_num;
-    }
-    if (oper == '*') {
-        result = fir_num * sec_num;
-    }
-    if (oper == '/') {
-        result = fir_num / sec_num;
+    char operator = 0;
+    do {scanf("%c", &operator);}while (operator == '\n');
+    
+    float sec_num = 0;
+    do {scanf("%f", &sec_num);}while (sec_num == '\n');
+
+    switch (operator) {
+        case '+':
+            printf("= %f\n", first_num + sec_num);
+            break;
+
+        case '-':
+            printf("= %f\n", first_num - sec_num);
+            break;
+
+        case '/':
+            sec_num != 0 ?  
+                printf("= %f\n", first_num / sec_num) : 
+                printf("Error: Invalid division (division by zero)!");
+            break;
+
+        case '*':
+            printf("= %f\n", first_num * sec_num);
+            break;
+        
+        default:
+            break;
     }
     
 
